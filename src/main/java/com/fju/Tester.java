@@ -139,7 +139,7 @@ public class Tester {
                                     total = hotel.price* hotel.count;
                                 }
                             } else if (answer1 == 0) {
-                                System.out.println("Thank u ! bye !");
+
                             }
                         } else {
                             System.out.println("!!!!error!!!!");

@@ -15,6 +15,7 @@ public class App extends JFrame {
     private JPanel Choice;
     private JPanel YN;
     private JTextArea textArea1;
+    private JButton exitButton;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
@@ -45,6 +46,8 @@ public class App extends JFrame {
         JButton train = new JButton();
         JButton ship = new JButton();
         JButton hotel = new JButton();
+        JButton exit = new JButton();
+        exit.setVisible(true);
         yes.setVisible(true);
         no.setVisible(true);
         airplane.setVisible(true);
@@ -54,23 +57,113 @@ public class App extends JFrame {
 
 
         while (true) {
-            order.setText(Hotel.type + " : " + Hotel.price
+            order.append(Hotel.type + " : " + Hotel.price
                    + "\n" + Airplane.type + " : " + Airplane.price
                    + "\n" + Ship.type + " : " + Ship.price
                     + "\n" + Train.type + " : " + Train.price);
             if (hotel.getModel().isPressed()){
                 order.append(" Are u sure for the " + Hotel.type + " ? ");
                 if (yes.getModel().isPressed()){
-                    order.append("Do u want to buy  " + Train.type + " for 10% discount ?" );
+                    order.append("Do u want to buy other ticket for 10% discount ?" );
+                    if (yes.getModel().isPressed()){
+                      order.append(" Which do u want to buy ?");
+                        order.append(Hotel.type + " : " + Hotel.price
+                                + "\n" + Airplane.type + " : " + Airplane.price
+                                + "\n" + Ship.type + " : " + Ship.price
+                                + "\n" + Train.type + " : " + Train.price);
+                        if (train.getModel().isPressed()){
+                            Hotel.count += 1;
+                            Train.count += 1;
+                            discount += (int) ((Hotel.price + Train.price) * 0.1);
+                            total += Train.price + Hotel.price;
+                            order.append(Train.type + " : " + Train.count + "\n"
+                                        + Hotel.type + " : " + Hotel.count + "\n"
+                                        + "Discount : " + discount
+                                        + "Total : " + total);
+                        } else if (ship.getModel().isPressed()){
+                            Hotel.count += 1;
+                            Ship.count += 1;
+                            discount += (int) ((Hotel.price + Ship.price) * 0.1);
+                            total += Ship.price + Hotel.price;
+                            order.append(Ship.type + " : " + Ship.count + "\n"
+                                    + Hotel.type + " : " + Hotel.count + "\n"
+                                    + "Discount : " + discount
+                                    + "Total : " + total);
+                        } else if (airplane.getModel().isPressed()){
+                            Hotel.count += 1;
+                            Airplane.count += 1;
+                            discount += (int) ((Hotel.price + Airplane.price) * 0.1);
+                            total += Airplane.price + Hotel.price;
+                            order.append(Airplane.type + " : " + Airplane.count + "\n"
+                                    + Hotel.type + " : " + Hotel.count + "\n"
+                                    + "Discount : " + discount
+                                    + "Total : " + total);
+                        }
+                    } else if (no.getModel().isPressed()){
+                        order.append(Hotel.type + " : " + Hotel.count + "\n"
+                                + "Discount : " + discount
+                                + "Total : " + total);
+                    }
+                }
+            }  if (train.getModel().isPressed()){
+                order.append(" Are u sure for the " + Train.type + " ? ");
+                if (yes.getModel().isPressed()){
+                    order.append("Do u want to buy  " + Hotel.type + " for 10% discount ?" );
                     if (yes.getModel().isPressed()){
                         Hotel.count += 1;
                         Train.count += 1;
                         discount += (int) ((Hotel.price + Train.price) * 0.1);
                         total += Train.price + Hotel.price;
+                        order.append(Train.type + " : " + Train.count + "\n"
+                                + Hotel.type + " : " + Hotel.count + "\n"
+                                + "Discount : " + discount
+                                + "Total : " + total);
                     } else if (no.getModel().isPressed()){
-                        break;
+                        order.append(Train.type + " : " + Train.count + "\n"
+                                + "Discount : " + discount
+                                + "Total : " + total);
                     }
                 }
+            }  if (ship.getModel().isPressed()){
+                order.append(" Are u sure for the " + Ship.type + " ? ");
+                if (yes.getModel().isPressed()){
+                    order.append("Do u want to buy  " + Train.type + " for 10% discount ?" );
+                    if (yes.getModel().isPressed()){
+                        Hotel.count += 1;
+                        Ship.count += 1;
+                        discount += (int) ((Hotel.price + Ship.price) * 0.1);
+                        total += Ship.price + Hotel.price;
+                        order.append(Ship.type + " : " + Ship.count + "\n"
+                                + Hotel.type + " : " + Hotel.count + "\n"
+                                + "Discount : " + discount
+                                + "Total : " + total);
+                    } else if (no.getModel().isPressed()){
+                        order.append(Ship.type + " : " + Ship.count + "\n"
+                                + "Discount : " + discount
+                                + "Total : " + total);
+                    }
+                }
+            } if (airplane.getModel().isPressed()){
+                order.append(" Are u sure for the " + Airplane.type + " ? ");
+                if (yes.getModel().isPressed()){
+                    order.append("Do u want to buy  " + Hotel.type + " for 10% discount ?" );
+                    if (yes.getModel().isPressed()){
+                        Hotel.count += 1;
+                        Airplane.count += 1;
+                        discount += (int) ((Hotel.price + Airplane.price) * 0.1);
+                        total += Airplane.price + Hotel.price;
+                        order.append(Airplane.type + " : " + Airplane.count + "\n"
+                                + Hotel.type + " : " + Hotel.count + "\n"
+                                + "Discount : " + discount );
+                    } else if (no.getModel().isPressed()){
+                        order.append(Airplane.type + " : " + Airplane.count + "\n"
+                                + "Discount : " + discount
+                                + "Total : " + total);
+                    }
+                }
+            }if (exit.getModel().isPressed()){
+                order.append(" Thank u bye ! ");
+                break;
             }
         }
     }
