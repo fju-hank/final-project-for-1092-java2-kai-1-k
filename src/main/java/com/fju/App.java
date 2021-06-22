@@ -4,9 +4,8 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class App extends JFrame{
+public class App extends JFrame {
     private JPanel App;
-    private JTextArea order;
     private JButton hotelButton;
     private JButton trainButton;
     private JButton shipButton;
@@ -15,12 +14,13 @@ public class App extends JFrame{
     private JButton yesButtom;
     private JPanel Choice;
     private JPanel YN;
+    private JTextArea textArea1;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
 
-    public App (String title){
+    public App(String title) {
         super(title);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,12 +51,11 @@ public class App extends JFrame{
         hotel.setVisible(true);
 
 
-        hotel.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                JOptionPane.showMessageDialog(null,"Are u sure about " + Train.type + " ? " );
-
-            }
-        });
+        while (true) {
+            order.setText(Hotel.type + " : " + Hotel.price
+                   + "\n" + Airplane.type + " : " + Airplane.price
+                   + "\n" + Ship.type + " : " + Ship.price
+                    + "\n" + Train.type + " : " + Train.price);
+        }
     }
 }
