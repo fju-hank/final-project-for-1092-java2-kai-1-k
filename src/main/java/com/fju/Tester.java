@@ -40,6 +40,7 @@ public class Tester {
             System.out.println();
             int ticket = scanner.nextInt();
             if (ticket == 0) {
+                System.out.println("Thank u ! bye !");
                 break;
             } else {
                 if (ticket == train.number) {
@@ -59,7 +60,7 @@ public class Tester {
                             total += train.price + hotel.price;
                         }
                     } else if (answer1 == 0) {
-                        System.out.println();
+                        System.out.println("Thank u ! bye !");
                     }
                 } else if (ticket == ship.number) {
                     System.out.println("Sure for " + ship.type + " ?");
@@ -79,7 +80,7 @@ public class Tester {
                                 total += ship.price + hotel.price;
                             }
                         } else if (answer1 == 0) {
-                            System.out.println();
+                            System.out.println("Thank u ! bye !");
                         }
                     } else if (ticket == airplane.number) {
                         System.out.println("Sure for " + airplane.type + " ?");
@@ -98,7 +99,7 @@ public class Tester {
                                     total += airplane.price + hotel.price;
                                 }
                             } else if (answer1 == 0) {
-                                System.out.println();
+                                System.out.println("Thank u ! bye !");
                             }
                         } else if (ticket == hotel.number) {
                             System.out.println("Sure for " + hotel.type + " ?");
@@ -126,7 +127,7 @@ public class Tester {
                                     total += airplane.price + hotel.price;
                                 }
                             } else if (answer1 == 0) {
-                                System.out.println();
+                                System.out.println("Thank u ! bye !");
                             }
                         } else {
                             System.out.println("!!!!error!!!!");
