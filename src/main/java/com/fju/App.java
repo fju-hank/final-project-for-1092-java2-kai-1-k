@@ -1,6 +1,8 @@
 package com.fju;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class App extends JFrame{
     private JPanel App;
@@ -27,8 +29,14 @@ public class App extends JFrame{
     }
 
     public static void main(String[] args) {
+        Train Train = new Train();
+        Ship Ship = new Ship();
+        Airplane Airplane = new Airplane();
+        Hotel Hotel = new Hotel();
         JFrame jFrame = new App("My order app");
         jFrame.setVisible(true);
+        JTextArea order = new JTextArea();
+        order.setVisible(true);
         JButton yes = new JButton();
         JButton no = new JButton();
         JButton airplane = new JButton();
@@ -41,5 +49,14 @@ public class App extends JFrame{
         train.setVisible(true);
         ship.setVisible(true);
         hotel.setVisible(true);
+
+
+        hotel.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                JOptionPane.showMessageDialog(null,"Are u sure about " + Train.type + " ? " );
+
+            }
+        });
     }
 }
