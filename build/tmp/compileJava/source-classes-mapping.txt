@@ -10,3 +10,5 @@ com/fju/Train.java
  com.fju.Train
 com/fju/Tester.java
  com.fju.Tester
+com/fju/App.java
+ com.fju.App
