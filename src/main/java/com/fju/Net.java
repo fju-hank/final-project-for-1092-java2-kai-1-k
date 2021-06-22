@@ -18,7 +18,6 @@ public class Net {
             StringBuffer sb = new StringBuffer();
             String line = in.readLine();
             while(line != null) {
-//                System.out.println(line);
                 sb.append(line);
                 line = in.readLine();
             }
