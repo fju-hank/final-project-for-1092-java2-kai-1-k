@@ -29,6 +29,8 @@ public class App extends JFrame {
     }
 
     public static void main(String[] args) {
+        int total = 0 ;
+        int discount = 0 ;
         Train Train = new Train();
         Ship Ship = new Ship();
         Airplane Airplane = new Airplane();
@@ -56,6 +58,20 @@ public class App extends JFrame {
                    + "\n" + Airplane.type + " : " + Airplane.price
                    + "\n" + Ship.type + " : " + Ship.price
                     + "\n" + Train.type + " : " + Train.price);
+            if (hotel.getModel().isPressed()){
+                order.append(" Are u sure for the " + Hotel.type + " ? ");
+                if (yes.getModel().isPressed()){
+                    order.append("Do u want to buy  " + Train.type + " for 10% discount ?" );
+                    if (yes.getModel().isPressed()){
+                        Hotel.count += 1;
+                        Train.count += 1;
+                        discount += (int) ((Hotel.price + Train.price) * 0.1);
+                        total += Train.price + Hotel.price;
+                    } else if (no.getModel().isPressed()){
+                        break;
+                    }
+                }
+            }
         }
     }
 }

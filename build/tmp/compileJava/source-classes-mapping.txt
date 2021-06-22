@@ -8,8 +8,9 @@ com/fju/Ticket.java
  com.fju.Ticket
 com/fju/Train.java
  com.fju.Train
-com/fju/Tester.java
- com.fju.Tester
+com/fju/Net.java
+ com.fju.Net
 com/fju/App.java
  com.fju.App
- com.fju.App$1
+com/fju/Tester.java
+ com.fju.Tester

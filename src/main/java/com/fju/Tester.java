@@ -58,9 +58,12 @@ public class Tester {
                             train.count += 1;
                             discount += (int) ((hotel.price + train.price) * 0.1);
                             total += train.price + hotel.price;
+                        } if (answer2 == 0){
+                            train.count += 1 ;
+                            total = train.price* train.count;
                         }
                     } else if (answer1 == 0) {
-                        System.out.println("Thank u ! bye !");
+                        System.out.println();
                     }
                 } else if (ticket == ship.number) {
                     System.out.println("Sure for " + ship.type + " ?");
@@ -78,9 +81,12 @@ public class Tester {
                                 ship.count += 1;
                                 discount += (int) ((hotel.price + ship.price) * 0.1);
                                 total += ship.price + hotel.price;
+                            }if (answer2 == 0){
+                                ship.count += 1 ;
+                                total = ship.price* ship.count;
                             }
                         } else if (answer1 == 0) {
-                            System.out.println("Thank u ! bye !");
+                            System.out.println();
                         }
                     } else if (ticket == airplane.number) {
                         System.out.println("Sure for " + airplane.type + " ?");
@@ -97,6 +103,9 @@ public class Tester {
                                     airplane.count += 1;
                                     discount += (int) ((hotel.price + airplane.price) * 0.1);
                                     total += airplane.price + hotel.price;
+                                }if (answer2 == 0){
+                                    airplane.count += 1 ;
+                                    total = airplane.price* airplane.count;
                                 }
                             } else if (answer1 == 0) {
                                 System.out.println("Thank u ! bye !");
@@ -125,6 +134,9 @@ public class Tester {
                                     airplane.count += 1;
                                     discount = (int) ((hotel.price + airplane.price) * 0.1);
                                     total += airplane.price + hotel.price;
+                                }if (answer2 == 0){
+                                    hotel.count += 1 ;
+                                    total = hotel.price* hotel.count;
                                 }
                             } else if (answer1 == 0) {
                                 System.out.println("Thank u ! bye !");
