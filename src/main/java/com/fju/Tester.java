@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class Tester {
     public static void main(String[] args) {
+        Time now = new Time();
         Train train = new Train();
         Ship ship = new Ship();
         Airplane airplane = new Airplane();
         Hotel hotel = new Hotel();
         Scanner scanner = new Scanner(System.in);
+        Time time = new Time();
         int total = 0;
         int discount = 0;
         while (true) {
@@ -24,6 +26,8 @@ public class Tester {
             for (int i = 0; i < 4; i++) {
                 System.out.println(i + 1 + " ." + type[i] + " :" + price[i]);
             }
+            System.out.print("Now time : ");
+            time.time();
             System.out.println("Pause 0 to exit");
             for (int i = 0; i < 30; i++) {
                 System.out.print("*");
@@ -58,9 +62,11 @@ public class Tester {
                             train.count += 1;
                             discount += (int) ((hotel.price + train.price) * 0.1);
                             total += train.price * train.count + hotel.price * hotel.count ;
+                            now.time();
                         } if (answer2 == 0){
                             train.count += 1 ;
                             total = train.price * train.count;
+                            now.time();
                         }
                     } else if (answer1 == 0) {
                         System.out.println();
@@ -94,7 +100,6 @@ public class Tester {
                         System.out.println("Pause 1 for sure ");
                         System.out.println("Pause 0 to exit ");
                         int answer1 = scanner.nextInt();
-
                         if (answer1 == 1) {
                             System.out.println("Do u want to buy the hotel ticket for 10% discount ? ");
                             System.out.println("Pause 1 for sure ");
@@ -117,7 +122,6 @@ public class Tester {
                             System.out.println("Pause 1 for sure ");
                             System.out.println("Pause 0 to exit ");
                             int answer1 = scanner.nextInt();
-
                             if (answer1 == 1) {
                                 System.out.println("Do u want add the other tickets for 10% discount?");
                                 int answer2 = scanner.nextInt();
@@ -150,9 +154,7 @@ public class Tester {
                             System.out.println("!!!!error!!!!");
                             System.out.println("Please enter again :");
                         }
-
-
+                }
             }
         }
     }
-}

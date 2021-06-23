@@ -3,7 +3,12 @@ package com.fju;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class App extends JFrame {
     private JPanel App;
@@ -31,8 +36,9 @@ public class App extends JFrame {
     }
 
     public static void main(String[] args)throws java.io.IOException {
-    int total = 0 ;
+        int total = 0 ;
         int discount = 0 ;
+        Time time = new Time();
         Train Train = new Train();
         Ship Ship = new Ship();
         Airplane Airplane = new Airplane();
@@ -65,7 +71,7 @@ public class App extends JFrame {
             order.append("Hi!" + Hotel.type + " : " + Hotel.price
                    + "\n" + Airplane.type + " : " + Airplane.price
                    + "\n" + Ship.type + " : " + Ship.price
-                    + "\n" + Train.type + " : " + Train.price );
+                    + "\n" + Train.type + " : " + Train.price);
             if (hotel.getModel().isPressed()){
                 order.append(" Are u sure for the " + Hotel.type + " ? ");
                 if (yes.getModel().isPressed()){
@@ -85,7 +91,8 @@ public class App extends JFrame {
                                     + Train.type + " : " + Train.count + "\n"
                                         + Hotel.type + " : " + Hotel.count + "\n"
                                         + "Discount : " + discount
-                                        + "Total : " + total);
+                                        + "Total : " + total
+                                    + "\n" +" Now time : " + time.time() );
                         } else if (ship.getModel().isPressed()){
                             Hotel.count += 1;
                             Ship.count += 1;
@@ -95,7 +102,8 @@ public class App extends JFrame {
                                     +Ship.type + " : " + Ship.count + "\n"
                                     + Hotel.type + " : " + Hotel.count + "\n"
                                     + "Discount : " + discount
-                                    + "Total : " + total);
+                                    + "Total : " + total
+                                    + "\n" +" Now time : " + time.time() );
                         } else if (airplane.getModel().isPressed()){
                             Hotel.count += 1;
                             Airplane.count += 1;
@@ -105,13 +113,15 @@ public class App extends JFrame {
                                     +Airplane.type + " : " + Airplane.count + "\n"
                                     + Hotel.type + " : " + Hotel.count + "\n"
                                     + "Discount : " + discount
-                                    + "Total : " + total);
+                                    + "Total : " + total
+                                    + "\n" +" Now time : " + time.time() );
                         }
                     } else if (no.getModel().isPressed()){
                         order.append(str + "," + "your order is "
                                 +Hotel.type + " : " + Hotel.count + "\n"
                                 + "Discount : " + discount
-                                + "Total : " + total);
+                                + "Total : " + total
+                                + "\n" +" Now time : " + time.time() );
                     }
                 }
             }  if (train.getModel().isPressed()){
@@ -127,12 +137,14 @@ public class App extends JFrame {
                                 +Train.type + " : " + Train.count + "\n"
                                 + Hotel.type + " : " + Hotel.count + "\n"
                                 + "Discount : " + discount
-                                + "Total : " + total);
+                                + "Total : " + total
+                                + "\n" +" Now time : " + time.time() );
                     } else if (no.getModel().isPressed()){
                         order.append(str + "," + "your order is "
                                 +Train.type + " : " + Train.count + "\n"
                                 + "Discount : " + discount
-                                + "Total : " + total);
+                                + "Total : " + total
+                                + "\n" +" Now time : " + time.time() );
                     }
                 }
             }  if (ship.getModel().isPressed()){
@@ -148,12 +160,14 @@ public class App extends JFrame {
                                 +Ship.type + " : " + Ship.count + "\n"
                                 + Hotel.type + " : " + Hotel.count + "\n"
                                 + "Discount : " + discount
-                                + "Total : " + total);
+                                + "Total : " + total
+                                + "\n" +" Now time : " + time.time() );
                     } else if (no.getModel().isPressed()){
                         order.append(str + "," + "your order is "
                                 +Ship.type + " : " + Ship.count + "\n"
                                 + "Discount : " + discount
-                                + "Total : " + total);
+                                + "Total : " + total
+                                + "\n" +" Now time : " + time.time() );
                     }
                 }
             } if (airplane.getModel().isPressed()){
@@ -168,12 +182,15 @@ public class App extends JFrame {
                         order.append(str + "," + "your order is "
                                 +Airplane.type + " : " + Airplane.count + "\n"
                                 + Hotel.type + " : " + Hotel.count + "\n"
-                                + "Discount : " + discount );
+                                + "Discount : " + discount
+                                + "Total : " + total
+                                + "\n" +" Now time : " + time.time() );
                     } else if (no.getModel().isPressed()){
                         order.append(str + "," + "your order is "
                                 +Airplane.type + " : " + Airplane.count + "\n"
                                 + "Discount : " + discount
-                                + "Total : " + total);
+                                + "Total : " + total
+                                + "\n" +" Now time : " + time.time() );
                     }
                 }
             }if (exit.getModel().isPressed()){
