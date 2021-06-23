@@ -1,2 +1,16 @@
+com/fju/Hotel.java
+ com.fju.Hotel
+com/fju/Ship.java
+ com.fju.Ship
+com/fju/Airplane.java
+ com.fju.Airplane
+com/fju/Ticket.java
+ com.fju.Ticket
+com/fju/Train.java
+ com.fju.Train
+com/fju/Net.java
+ com.fju.Net
+com/fju/App.java
+ com.fju.App
 com/fju/Tester.java
  com.fju.Tester
