@@ -57,10 +57,10 @@ public class Tester {
                             hotel.count += 1;
                             train.count += 1;
                             discount += (int) ((hotel.price + train.price) * 0.1);
-                            total += train.price + hotel.price;
+                            total += train.price * train.count + hotel.price * hotel.count ;
                         } if (answer2 == 0){
                             train.count += 1 ;
-                            total = train.price* train.count;
+                            total = train.price * train.count;
                         }
                     } else if (answer1 == 0) {
                         System.out.println();
@@ -80,63 +80,68 @@ public class Tester {
                                 hotel.count += 1;
                                 ship.count += 1;
                                 discount += (int) ((hotel.price + ship.price) * 0.1);
-                                total += ship.price + hotel.price;
+                                total += ship.price*ship.count + hotel.price* hotel.count;
                             }if (answer2 == 0){
                                 ship.count += 1 ;
-                                total = ship.price* ship.count;
+                                total += ship.price* ship.count;
                             }
                         } else if (answer1 == 0) {
                             System.out.println();
                         }
+                    }
                     } else if (ticket == airplane.number) {
                         System.out.println("Sure for " + airplane.type + " ?");
                         System.out.println("Pause 1 for sure ");
                         System.out.println("Pause 0 to exit ");
-                        int answer2 = scanner.nextInt();
+                        int answer1 = scanner.nextInt();
+
                         if (answer1 == 1) {
-                            if (answer2 == 1) {
-                                System.out.println("Do u want to buy the hotel ticket for 10% discount ? ");
-                                System.out.println("Pause 1 for sure ");
-                                System.out.println("Pause 0 to exit ");
+                            System.out.println("Do u want to buy the hotel ticket for 10% discount ? ");
+                            System.out.println("Pause 1 for sure ");
+                            System.out.println("Pause 0 to exit ");
+                            int answer2 = scanner.nextInt();
                                 if (answer2 == 1) {
                                     hotel.count += 1;
                                     airplane.count += 1;
                                     discount += (int) ((hotel.price + airplane.price) * 0.1);
-                                    total += airplane.price + hotel.price;
+                                    total += airplane.price * airplane.count + hotel.price * hotel.count ;
                                 }if (answer2 == 0){
                                     airplane.count += 1 ;
-                                    total = airplane.price* airplane.count;
+                                    total += airplane.price * airplane.count;
                                 }
                             } else if (answer1 == 0) {
                                 System.out.println("Thank u ! bye !");
                             }
-                        } else if (ticket == hotel.number) {
+                }else if ( ticket == hotel.number) {
                             System.out.println("Sure for " + hotel.type + " ?");
                             System.out.println("Pause 1 for sure ");
                             System.out.println("Pause 0 to exit ");
+                            int answer1 = scanner.nextInt();
+
                             if (answer1 == 1) {
                                 System.out.println("Do u want add the other tickets for 10% discount?");
+                                int answer2 = scanner.nextInt();
                                 for (int i = 0; i < 3; i++) {
                                     System.out.println(i + 1 + " ." + type[i] + " + " + hotel.type +
                                             " = " + (price[i] * 0.9 + hotel.price ));
                                 } if (answer2 == train.number){
                                     hotel.count += 1;
                                     train.count += 1;
-                                    discount = (int) ((hotel.price + train.price) * 0.1);
-                                    total += train.price + hotel.price;
+                                    discount += (int) ((hotel.price + train.price) * 0.1);
+                                    total += train.price * train.count + hotel.price * hotel.count;
                                 } else if (answer2 == ship.number){
                                     hotel.count += 1;
                                     ship.count += 1;
-                                    discount = (int) ((hotel.price + ship.price) * 0.1);
-                                    total += ship.price + hotel.price;
+                                    discount += (int) ((hotel.price + ship.price) * 0.1);
+                                    total += ship.price * ship.count + hotel.price * hotel.count ;
                                 } else if (answer2 == ship.number){
                                     hotel.count += 1;
                                     airplane.count += 1;
-                                    discount = (int) ((hotel.price + airplane.price) * 0.1);
-                                    total += airplane.price + hotel.price;
+                                    discount += (int) ((hotel.price + airplane.price ) * 0.1);
+                                    total += airplane.price * airplane.count + hotel.price * hotel.count;
                                 }if (answer2 == 0){
                                     hotel.count += 1 ;
-                                    total = hotel.price* hotel.count;
+                                    total += hotel.price * hotel.count;
                                 }
                             } else if (answer1 == 0) {
 
@@ -145,8 +150,8 @@ public class Tester {
                             System.out.println("!!!!error!!!!");
                             System.out.println("Please enter again :");
                         }
-                    }
-                }
+
+
             }
         }
     }
